@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st 
 
 # wichtig, weil man da die aktuelle Seite abfragt
 if "seite" not in st.session_state:
