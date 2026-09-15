@@ -900,7 +900,7 @@ else:
         }
         
 #Erklärtext
-        st.markdown("<p class='seiten-titel'style='text-align:center;'>Diesen Wissenschaftler$*$innen haben wir vier Fragen gestellt.<br> Ihre Antworten findest du weiter unten...</p>", unsafe_allow_html=True)
+        st.markdown("<p class='seiten-titel' style='text-align:center; font-size: 14px' >Diesen Wissenschaftler*innen haben wir vier Fragen gestellt.<br> Ihre Antworten findest du weiter unten...</p>", unsafe_allow_html=True)
 #  Daten für die Personen-Vorstellung 
         personen_vorstellung = [
             {"name": "Dr. Jan Euteneuer", "bild": "Bilder_Personen/Jan.JPG", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
