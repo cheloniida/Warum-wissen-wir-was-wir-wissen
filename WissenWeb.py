@@ -22,6 +22,9 @@ def hole_bildquelle(bildpfad):
 st.markdown(
     """
     <style>
+    /* Montserrat-Schrift*/
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
     .stApp {
         background:#484748;
     }
@@ -422,6 +425,46 @@ div[class*="st-key-kachel_gross_button_interview"] button[kind="primary"] {
         margin-top: 10px;
         margin-left: 34px;
     }
+    /* ---- Personen-Vorstellung vor dem Interview ---- */
+    .personen-vorstellung-reihe {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 25px;
+    }
+    .personen-box {
+        width: 130px;
+        border-radius: 14px;
+        padding: 14px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .personen-box img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 8px;
+    }
+    .personen-box-name {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        color: black;
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+    .personen-box-beruf {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 11px;
+        color: black;
+        line-height: 1.3;
+    }
+
     </style>
     """,
     unsafe_allow_html=True,
@@ -855,7 +898,33 @@ else:
             "Dr. Hans-Jörg Martin": "#ffb552",
             "Dr. Hans_Jörg Martin": "#ffb552",
         }
+#  Daten für die Personen-Vorstellung 
+        personen_vorstellung = [
+            {"name": "Dr. Jan Euteneuer", "bild": "Bilder_Personen/Jan.JPG", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Dr. Christiana Anagnostou", "bild": "Bilder_Personen/Christiana.JPG", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Prof. Dr. Andre Franke", "bild": "Bilder_Personen/Andre.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Prof. Dr. Cornelius Courts", "bild": "Bilder_Personen/Cornelius.JPG", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Ulf Evert", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Dr. Christine Desel", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Dr. Nina Keul", "bild": "Bilder_Personen/Nina.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Dr. Hans-Jörg Martin", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+        ]
 
+# ---- Personen-Vorstellungs-Reihe rendern ----
+        personen_html = "<div class='personen-vorstellung-reihe'>"
+        for person in personen_vorstellung:
+            bild_quelle = hole_bildquelle(person["bild"])
+            farbe = personen_farben.get(person["name"], "#ffffff")
+            personen_html += (
+                f"<div class='personen-box' style='background-color:{farbe};'>"
+                f"<img src='{bild_quelle}'>"
+                f"<div class='personen-box-name'>{person['name']}</div>"
+                f"<div class='personen-box-beruf'>{person['beruf']}</div>"
+                "</div>"
+            )
+        personen_html += "</div>"
+        st.markdown(personen_html, unsafe_allow_html=True)
+        
 # Interviews liste
         interview_fragen = [
             {
@@ -865,7 +934,7 @@ else:
                     {"text": "Bei meinem wissenschaftlichen Arbeiten richte ich mich nach dem Regelwerkzur Guten Wissenschaftlichen Praxis. Es gibt hilfreiche ethische und methodische Standards, wodurch veröffentlichte Ergebnisse möglichst der Wahrheit entsprechen. Wichtig ist es, als beobachtende Person die Ergebnisse nicht unterbewusst durch die eigene Sicht zu beeinflussen. Ich bin mir bewusst, dass die Ergebnisse nicht absolut, sondern oft vorläufig sind. Durch neue Technologien und Entdeckungen entwickelt sich Wissen ständig weiter. Die Wahrheitsfindung ist ein dynamischer Prozess.", "name": "Dr. Christiana Anagnostou"},
                     {"text": "Ich lese die Artikel mehrfach Korrektur, wenn ich Autor bin. Neuerdings nutzen wir zusätzlich KI zum Gegenlesen. Zudem gibt es im Peer-Review unabhängige Gutachter, die nochmal nach Fehlern schauen. Nobody is perfect. Was die Analytik und zugrundeliegenden Daten angeht so muss man auch auf die Qualifikationen der Mitarbeiter*innen achten. Diese muss man regelmäßig fortbilden, dass Sie die Regeln der guten wissenschaftlichen Praxis beachten. Außerdem darf man sie nicht unter Druck setzen, ansonsten steigt das Risiko für Betrug.", "name": "Prof. Dr. Andre Franke"},
                     {"text": "Ich lege Wert darauf, auch vermeintlich negative Ergebnisse zu veröffentlichen (publizieren), die eine Hypothese widerlegen (falsifizieren) und zeigen, dass eine bestimmte Annahme eben falsch war. Ich habe also keine Angst, solche negativen Befunde zu erhalten, solange sie wahr sind, denn auch diese sind Erkenntnisse", "name": "Prof. Dr. Cornelius Courts"},
-                    {"text": "Ich beziehe mich nicht  nur auf eine Veröffentlichung, sondern gehe sicher, dass mehrere Quellen dasselbe belegen. Zudem achte ich darauf, ob eine Studie unabhängig oder in Auftrag gegeben wurde und ob politische Organisationen mit Agenda dahinter stehen, wobei es leider schwer ist, das herauszufinden. Außerdem achte ich auf einen strengen Review-Prozess, eine ausreichende Stichprobengröße, Negativkontrolle und die Beschreibung der Durchführung der Experimente. ", "name": "Ulf Evert"},
+                    {"text": "Ich verlasse mich möglichst nicht auf nur eine einzelne Veröffentlichung, sondern prüfe, ob die Aussagen durch weitere unabhängige und seriöse Quellen gestützt werden. Zudem achte ich darauf, ob eine Studie unabhängig oder in Auftrag gegeben wurde und ob politische Organisationen mit Agenda dahinter stehen, soweit es erkennbar ist. Kriterien für die Qualität einer Studie sind für mich etwa Stichprobenumfang und -zusammensetzung,  Methodik und die Beschreibung der Durchführung,  insbesondere bei experimentellen Studien das Vorhandensein geeigneter Kontrollgruppen sowie der Reviewprozess.", "name": "Ulf Evert"},
                 ],
             },
             {
@@ -886,8 +955,7 @@ else:
                     {"text": "Ich kann von Menschen digital erstellte oder von KI manipulierte Fotos und Videos nicht (mehr) von echten unterscheiden. Ob es tatsächlich eine Mehrheit in der Gesellschaft gibt, die nicht weiß, wie man Fakten von Nicht-Fakten unterscheidet, weiß ich allerdings nicht.", "name": "Dr. Hans-Jörg Martin"},
                     {"text": "Ich habe den Eindruck, dass viele Menschen einfache Erklärungen bevorzugen. Das ist verständlich, da Komplexität Mühe macht. Manche Menschen überschätzen ihre Kenntnisse auch, oder können ihre Meinungen nicht von Fakten differenzieren. Medien verstärken und unterstützen diesen Effekt oft noch. Durch KI können zudem sehr echt wirkende Bilder, Videos etc. generiert werden. Die Möglichkeit, an Informationen und Falschinformationen zu kommen, ist somit sehr groß. Insgesamt werden wissenschaftliche Erkenntnisse zunehmend angezweifelt. Meines Erachtens beruht dies darauf, dass viele Menschen nicht wissen, wie Wissenschaft funktioniert. Bedauerlicherweise haben auch viele falsche und gefälschte Forschungsergebnisse zur Verbreitung von Nicht-Fakten geführt und das Vertrauen in die Wissenschaft untergraben.", "name": "Dr. Christiana Anagnostou"},
                     {"text": "Diese Unterscheidung ist zuweilen äußerst schwierig, selbst für Personen, die einen wissenschaftlichen Hintergrund haben. Leider gibt es zahlreiche Akteure in Machtpositionen, sei es Politik oder Wirtschaft, die ein Interesse daran haben, die eigenen Positionen oder Produkte durch das Verbreiten von nicht faktenbasierten Informationen zu stärken. Dies fällt nicht nur im Internet als Platz für ungefilterte Meinungsäußerungen, sondern auch in Medien durch Umfragen oder auch in persönlichen Gesprächen auf – selbst bei Menschen, die sich als aufgeklärt und progressiv gegenüber Wissenschaften sehen. Diese Fähigkeiten zu stärken, müsste ein entscheidender Punkt in der Vermittlung von Medienkompetenzen, am besten schon im Schulalter sein.", "name": "Dr. Jan Euteneuer"},
-                    {"text": "Meiner Einschätzung nach vertraut die Mehrheit der Gesellschaft eher der Wissenschaft, auch wenn viele nicht genau wissen, warum. Ich schätze, dass etwa 30 % Wissenschaft und Nicht-Wissenschaft nicht unterscheiden können oder der Wissenschaft nicht vertrauen. Das zeigt sich z. B. bei Homöopathie, bei der es zwar Studien gibt, aber entscheidend ist, dass diese nicht wissenschaftlich durchgeführt wurden. Im Buchhandel stehen Astronomie und Astrologie oft nebeneinander, was die Unterscheidung erschwert. Eine telefonische Umfrage des Wissenschaftsbarometers zu Beginn der Corona-Zeit zeigte, dass etwa 70–75 % der Befragten der Wissenschaft vertrauen. ", "name": "Ulf Evert"},
-                ],
+                   ],
             },
             {
                 "frage": "Wie würden Sie wissenschaftliches Arbeiten einem Laien außerhalb der Wissenschaft erklären?",
