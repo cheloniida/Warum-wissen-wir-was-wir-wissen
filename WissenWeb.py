@@ -434,7 +434,7 @@ div[class*="st-key-kachel_gross_button_interview"] button[kind="primary"] {
         margin-bottom: 25px;
     }
     .personen-box {
-        width: 130px;
+        width: 180px;
         border-radius: 14px;
         padding: 14px 10px;
         display: flex;
@@ -452,7 +452,7 @@ div[class*="st-key-kachel_gross_button_interview"] button[kind="primary"] {
     .personen-box-name {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 12px;
         color: black;
         margin-bottom: 4px;
         line-height: 1.2;
