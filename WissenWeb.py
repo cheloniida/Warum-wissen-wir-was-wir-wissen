@@ -900,17 +900,17 @@ else:
         }
         
 #Erklärtext
-        st.markdown("<p class='seiten-titel' style='text-align:center; font-size: 14px' >Diesen Wissenschaftler*innen haben wir vier Fragen gestellt.<br> Ihre Antworten findest du weiter unten...</p>", unsafe_allow_html=True)
+        st.markdown("<p class='seiten-titel' style='text-align:center; font-size: 12px' >Diesen Wissenschaftler*innen haben wir vier Fragen gestellt.<br> Ihre Antworten findest du weiter unten...</p>", unsafe_allow_html=True)
 #  Daten für die Personen-Vorstellung 
         personen_vorstellung = [
-            {"name": "Dr. Jan Euteneuer", "bild": "Bilder_Personen/Jan.JPG", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
-            {"name": "Dr. Christiana Anagnostou", "bild": "Bilder_Personen/Christiana.JPG", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
-            {"name": "Prof. Dr. Andre Franke", "bild": "Bilder_Personen/Andre.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
-            {"name": "Prof. Dr. Cornelius Courts", "bild": "Bilder_Personen/Cornelius.JPG", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
-            {"name": "Ulf Evert", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
-            {"name": "Dr. Christine Desel", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
-            {"name": "Dr. Nina Keul", "bild": "Bilder_Personen/Nina.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
-            {"name": "Dr. Hans-Jörg Martin", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Beruf hier einfügen (ca. 50 Zeichen)"},
+            {"name": "Dr. Jan Euteneuer", "bild": "Bilder_Personen/Jan.JPG", "beruf": "Forensischer Molekularbiologe,Stellv. Bereichsleiter der Forensischen Genetik im Institut für Rechtsmedizin des UKSH Kiel mit Forschungsschwerpunkt Forensische RNA Analytik"},
+            {"name": "Dr. Christiana Anagnostou", "bild": "Bilder_Personen/Christiana.JPG", "beruf": "Biologin, Dozentin in der Sektion Biologie an der Christian-Albrechts-Universität zu Kiel"},
+            {"name": "Prof. Dr. Andre Franke", "bild": "Bilder_Personen/Andre.jpg", "beruf": "Molekulare Medizin, Direktor und W3 Professor am Institut für Klinische Molekularbiologie CAU & UKSH "},
+            {"name": "Prof. Dr. Cornelius Courts", "bild": "Bilder_Personen/Cornelius.JPG", "beruf": "Forensischer Molekularbiologe, Prof. für Forensische Molekulargenetik an der UzK, Institut für Rechtsmedizin Köln"},
+            {"name": "Ulf Evert", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Diplombiologe, Wissenschaftskommunikation (Seeburg),Christian-Albrechts-Universität zu Kiel, Germany"},
+            {"name": "Dr. Christine Desel", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Biologin, Pflanzliche Zellbiologie, Dozentin in der Sektion Biologie an der Christian-Albrechts-Universität zu Kiel"},
+            {"name": "Dr. Nina Keul", "bild": "Bilder_Personen/Nina.jpg", "beruf": "AG Paläozeanographie & Klima, Marine Geosciences, Christian-Albrechts-Universität zu Kiel, Germany"},
+            {"name": "Dr. Hans-Jörg Martin", "bild": "Bilder_Personen/PersonLeer.jpg", "beruf": "Chemiker, Kommissarischer Leiter des Instituts für Toxikologie und Pharmakologie für Naturwissenschaftler, Kiel"},
         ]
 
 # ---- Personen-Vorstellungs-Reihe rendern ----
