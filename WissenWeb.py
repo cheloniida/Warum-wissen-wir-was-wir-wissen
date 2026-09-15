@@ -968,7 +968,7 @@ else:
                     {"text": "Wissenschaft ist weniger „Wissen haben“ als „Wissen sauber herausfinden“. Wissenschaftliches Arbeiten ist wie Detektivarbeit: Man beginnt mit einer Frage, sammelt Beweise und Fakten, prüft verschiedene Erklärungen und versucht, sich nicht von der eigenen Lieblingsidee täuschen zu lassen. Gute Wissenschaft bedeutet nicht, immer sofort die richtige Antwort zu kennen, sondern nachvollziehbar zu zeigen, wie man zu einer Antwort gekommen ist.", "name": "Prof. Dr. Andre Frank"},
                 ],
             },
-        ]
+        ] 
 
         # Merkt sich, welche Frage aktuell angezeigt wird
         if "interview_index" not in st.session_state:
