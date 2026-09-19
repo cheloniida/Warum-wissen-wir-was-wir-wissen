@@ -200,24 +200,45 @@ div[class*="st-key-kachel_gross_button_interview"] button[kind="primary"] {
         min-width: 100px !important;
         padding: 12px 16px !important;
     }
+    div[class*="st-key-kategorie_buttons_box"] button[kind="secondary"] {
+        min-width: 100px !important;
+        padding: 12px 16px !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
     /* Handy-Look fürs Spiel (9:16)*/
     .spiel-karte {
         background-color: white;
         border-radius: 20px;
-        padding: 15px;
+        padding: 12px;
         margin: 0 auto 20px auto;
-        width: 200px;
-        aspect-ratio: 9 / 16;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+        display: block;
+        width: fit-content;
     }
     .spiel-karte img {
-        width: 100%;
-        height: 100%;
+        display: block;
+        width: 220px;
+        aspect-ratio: 9 / 16;
         object-fit: cover;
         border-radius: 12px;
+    }
+        /* Karte für die Ergebnis-Anzeige */
+    .ergebnis-karte {
+        background-color: white;
+        border-radius: 20px;
+        padding: 35px 20px;
+        margin: 0 auto 20px auto;
+        max-width: 300px;
+        text-align: center;
+    }
+    .ergebnis-karte h2 {
+        margin-bottom: 15px;
+    }
+    .ergebnis-karte p {
+        font-size: 20px;
+        line-height: 1.5;
+        margin: 0;
     }
     .feedback-richtig {
         background-color: #c8f7c5;
@@ -819,15 +840,15 @@ else:
         # Spiel fertig: Auswertung anzeigen
         if st.session_state.spiel_index >= len(spiel_bilder):
             st.markdown(
-                f"<div class='spiel-karte'><h2>Ergebnis</h2>"
-                f"<p style='font-size:22px; text-align:center;'>Du hattest<br> {st.session_state.spiel_punkte} <br>von <br> {len(spiel_bilder)} <br>richtig!</p></div>",
-                unsafe_allow_html=True
-            )
-            mitte = st.columns(3)[1]
-            with mitte:
-                if st.button("Nochmal spielen", key="btn_neustart"):
-                    spiel_zuruecksetzen()
-                    st.rerun()
+            f"<div class='ergebnis-karte'><h2>Ergebnis</h2>"
+            f"<p>Du hattest {st.session_state.spiel_punkte} von {len(spiel_bilder)} richtig!</p></div>",
+            unsafe_allow_html=True
+        )
+        mitte = st.columns(3)[1]
+        with mitte:
+            if st.button("Nochmal spielen", key="btn_neustart"):
+                spiel_zuruecksetzen()
+                st.rerun()
 
         # Spiel läuft: aktuelles Bild + Buttons 
         else:
