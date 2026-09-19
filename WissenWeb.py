@@ -851,10 +851,10 @@ else:
                 st.rerun()
 
         # Spiel läuft: aktuelles Bild + Buttons 
-        else:
-            aktueller_eintrag = spiel_bilder[st.session_state.spiel_index]
-            bildpfad = aktueller_eintrag["bild"]
-
+            else:
+                aktueller_eintrag = spiel_bilder[st.session_state.spiel_index]
+                bildpfad = aktueller_eintrag["bild"]
+    
         # Bildquelle bestimmen: URL direkt nutzen, lokale Datei als base64 
             if bildpfad.startswith("http://") or bildpfad.startswith("https://"):
                bild_quelle = bildpfad
