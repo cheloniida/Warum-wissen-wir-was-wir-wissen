@@ -1,5 +1,4 @@
 name: App wach halten
-
 on:
   schedule:
     - cron: '0 */10 * * *'
